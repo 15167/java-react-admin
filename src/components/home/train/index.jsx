@@ -143,7 +143,7 @@ function Train() {
     setLoading(true);
     setBatchDeleteModalVisible(true);
     const arr = [];
-    console.log(data);
+    
     data.forEach((x) => {
       selectedRowKeys.forEach((y) => {
         if (x.id === y)
@@ -151,7 +151,7 @@ function Train() {
           arr.push(x);
       });
     });
-    console.log(arr);
+    
     setIntersectionArr(arr);
   };
   // 监听批量删除对话框的确认事件
@@ -200,7 +200,7 @@ function Train() {
     values.startTime = values.startTime.valueOf();
     values.endTime = values.endTime.valueOf();
     postTrain(values).then((res) => {
-      console.log(res);
+      
       if (res.data.status !== 200) return message.error("新建失败！");
       handleGetTrain();
       message.success("新建成功！");

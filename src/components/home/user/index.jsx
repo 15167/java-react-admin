@@ -155,7 +155,7 @@ function User() {
     setLoading(true);
     setBatchDeleteModalVisible(true);
     const arr = [];
-    console.log(data);
+    
     data.forEach((x) => {
       selectedRowKeys.forEach((y) => {
         if (x.id === y)
@@ -163,7 +163,7 @@ function User() {
           arr.push(x);
       });
     });
-    console.log(arr);
+    
     setIntersectionArr(arr);
   };
   // 监听批量删除对话框的确认事件
@@ -189,9 +189,9 @@ function User() {
   const onNewItemModalFinish = (values) => {
     newItemForm.resetFields();
     values.staffId = Number(values.staffId);
-    console.log(values);
+    
     postUser(values).then((res) => {
-      console.log(res);
+      
       if (res.data.status !== 200)
         return message.error("新建失败：员工id不存在！");
       handleGetUser();
@@ -213,7 +213,7 @@ function User() {
   };
   // 监听编辑对话框的确认事件(表单的onFinish替代)
   const onEditItemModalFinish = (values) => {
-    console.log(values);
+    
     editItemForm.resetFields();
     delete values.staffName;
     putUser(values).then(res => {

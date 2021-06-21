@@ -108,7 +108,7 @@ function Interview() {
   // 监听新建对话框的确认事件(表单的onFinish替代)
   const onNewItemModalFinish = (values) => {
     newItemForm.resetFields();
-    console.log(values);
+    
     postInterview(values).then((res) => {
       if (res.data.status !== 200) return message.error("新建失败！");
       message.success("新建成功！");
@@ -118,7 +118,7 @@ function Interview() {
   };
   // 监听编辑按钮的点击
   const editByKey = (e, record) => {
-    console.log('record',record);
+    
     e.preventDefault();
     setEditFormValues(record);
     setEditItemModalVisible(true);
@@ -131,7 +131,7 @@ function Interview() {
   };
   // 监听编辑对话框的确认事件(表单的onFinish替代)
   const onEditItemModalFinish = (values) => {
-    console.log('values',values);
+    
     editItemForm.resetFields();
     if (typeof values.interviewStatus === "string") {
       switch (values.interviewStatus) {
@@ -152,7 +152,7 @@ function Interview() {
       }
     }
     putInterview(values).then((res) => {
-      console.log(res);
+      
       if (res.data.status !== 200) return message.error("修改失败！");
       handleGetInterview();
       message.success("修改成功！");
